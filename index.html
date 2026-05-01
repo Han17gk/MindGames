@@ -3,226 +3,654 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MindGames — About Us</title>
-
-
+  <title>MindGames</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Righteous&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 
 <nav class="mg-navbar">
-  <a class="brand" href="home.html">🧩 MINDGAMES</a>
-  <ul class="nav-links">
-    <li><a href="home.html">Beranda</a></li>
-    <li><a href="sudoku.html">Sudoku</a></li>
-    <li><a href="tictactoe.html">Tic Tac Toe</a></li>
-    <li><a href="connect4.html">Connect 4</a></li>
-    <li><a href="sliding.html">Sliding Puzzle</a></li>
-    <li><a href="about.html" class="active">About Us</a></li>
-  </ul>
-  <div class="search-wrap">
-    <span class="search-icon">🔍</span>
-    <input type="text" placeholder="Cari game...">
+  <a class="navbar-brand" onclick="showPage('home')">🧩 MINDGAMES</a>
+  <button class="mg-hamburger" onclick="toggleNav()"><span></span><span></span><span></span></button>
+  <div class="mg-nav-collapse" id="navCollapse">
+    <ul class="mg-nav-links">
+      <li><a id="nav-home"     onclick="showPage('home')">Beranda</a></li>
+      <li><a id="nav-sudoku"   onclick="showPage('sudoku')">Sudoku</a></li>
+      <li><a id="nav-tictactoe" onclick="showPage('tictactoe')">Tic Tac Toe</a></li>
+      <li><a id="nav-connect4" onclick="showPage('connect4')">Connect 4</a></li>
+      <li><a id="nav-sliding"  onclick="showPage('sliding')">Sliding Puzzle</a></li>
+      <li><a id="nav-about"    onclick="showPage('about')">About Us</a></li>
+    </ul>
+    <div class="mg-search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" placeholder="Cari game...">
+    </div>
   </div>
 </nav>
 
 
-<section class="about-hero">
-  <div class="hero-icon">👥</div>
-  <div class="hero-tag">Tim di Balik MindGames</div>
-  <h1>About Us</h1>
-  <p>Mahasiswa ITS yang percaya bahwa belajar itu harusnya seru</p>
-</section>
+<div id="page-home" class="page active">
 
-
-<section class="mission-section">
-  <span class="section-badge">Misi Kami</span>
-  <h2>Kenapa MindGames?</h2>
-  <span class="underline-bar"></span>
-  <p>
-    MindGames lahir dari sebuah keyakinan sederhana — belajar dan bermain bisa
-    berjalan beriringan. Kami percaya bahwa game bukan hanya hiburan, tapi juga
-    alat yang kuat untuk melatih kemampuan berpikir logis, strategis, dan kreatif.
-  </p>
-  <p>
-    Sebagai mahasiswa Departemen Statistika Bisnis ITS Surabaya, kami
-    membangun platform ini sebagai proyek web statis yang membuktikan bahwa
-    pengalaman yang menyenangkan bisa dihadirkan hanya dengan HTML dan CSS.
-  </p>
-
-  <div class="stats-row">
-    <div class="stat-box">
-      <div class="stat-number">4</div>
-      <div class="stat-label">Mini Game Seru</div>
+  
+  <section class="hero">
+    <div class="hero-brain">🧠</div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">✦ Platform Mini Game Terbaik ✦</div>
+      <h1 class="hero-title">MINDGAMES</h1>
+      <p class="hero-sub">Asah otak Tantang dirimu  Raih skor tertinggi</p>
     </div>
-    <div class="stat-box">
-      <div class="stat-number">5</div>
-      <div class="stat-label">Anggota Tim</div>
+    <div class="hero-scroll">
+      <span>Gulir ke bawah</span>
+      <div class="scroll-arrow"></div>
     </div>
-    <div class="stat-box">
-      <div class="stat-number">100%</div>
-      <div class="stat-label">HTML &amp; CSS</div>
+  </section>
+
+  
+  <section class="games-section" id="games">
+    <div class="section-header">
+      <h2>Pilih Gamenya 🎮</h2>
+      <span class="underline"></span>
+      <p>Empat game seru yang siap menguji ketajaman pikiranmu</p>
+    </div>
+
+    <div class="games-grid">
+
+      <div class="game-card" onclick="showPage('sudoku')">
+        <div class="game-card-img sudoku">🔢</div>
+        <div class="game-card-body">
+          <span class="game-card-tag">Angka & Logika</span>
+          <h3 class="game-card-title">Sudoku</h3>
+          <p class="game-card-desc">Isi grid 9×9 dengan angka 1–9 tanpa ada pengulangan di baris, kolom, atau kotak 3×3.</p>
+          <div class="game-card-footer">
+            <div class="difficulty">
+              <div class="difficulty-dot"></div>
+              <div class="difficulty-dot"></div>
+              <div class="difficulty-dot"></div>
+              <div class="difficulty-dot empty"></div>
+              <div class="difficulty-dot empty"></div>
+            </div>
+            <span class="play-hint">Main sekarang →</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="game-card" onclick="showPage('tictactoe')">
+        <div class="game-card-img tictactoe">⭕</div>
+        <div class="game-card-body">
+          <span class="game-card-tag">Strategi 2 Pemain</span>
+          <h3 class="game-card-title">Tic Tac Toe</h3>
+          <p class="game-card-desc">Game klasik dua pemain! Susun tiga simbol sejajar di papan 3×3 untuk menang.</p>
+          <div class="game-card-footer">
+            <div class="difficulty">
+              <div class="difficulty-dot"></div>
+              <div class="difficulty-dot empty"></div>
+              <div class="difficulty-dot empty"></div>
+              <div class="difficulty-dot empty"></div>
+              <div class="difficulty-dot empty"></div>
+            </div>
+            <span class="play-hint">Main sekarang →</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="game-card" onclick="showPage('connect4')">
+        <div class="game-card-img connect4">🔵</div>
+        <div class="game-card-body">
+          <span class="game-card-tag">Strategi 2 Pemain</span>
+          <h3 class="game-card-title">Connect 4</h3>
+          <p class="game-card-desc">Jatuhkan keping ke kolom dan hubungkan 4 keping sewarna secara horizontal, vertikal, atau diagonal.</p>
+          <div class="game-card-footer">
+            <div class="difficulty">
+              <div class="difficulty-dot"></div>
+              <div class="difficulty-dot"></div>
+              <div class="difficulty-dot empty"></div>
+              <div class="difficulty-dot empty"></div>
+              <div class="difficulty-dot empty"></div>
+            </div>
+            <span class="play-hint">Main sekarang →</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="game-card" onclick="showPage('sliding')">
+        <div class="game-card-img sliding">🔲</div>
+        <div class="game-card-body">
+          <span class="game-card-tag">Puzzle & Logika</span>
+          <h3 class="game-card-title">Sliding Puzzle</h3>
+          <p class="game-card-desc">Susun kembali potongan angka yang teracak menjadi urutan 1–15 pada grid 4×4.</p>
+          <div class="game-card-footer">
+            <div class="difficulty">
+              <div class="difficulty-dot"></div>
+              <div class="difficulty-dot"></div>
+              <div class="difficulty-dot"></div>
+              <div class="difficulty-dot"></div>
+              <div class="difficulty-dot empty"></div>
+            </div>
+            <span class="play-hint">Main sekarang →</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT SNIPPET -->
+  <section class="about-section">
+    <div class="about-inner">
+      <div class="about-text">
+        <h2>Tentang MindGames 🧩</h2>
+        <p>MindGames adalah platform game edukasi berbasis web yang menyajikan koleksi mini game yang menyenangkan sekaligus melatih kemampuan berpikir logis dan strategis.</p>
+        <p>Dibuat oleh mahasiswa ITS Surabaya sebagai proyek web statis, MindGames membuktikan bahwa belajar bisa menyenangkan!</p>
+        <a class="btn-primary-mg" style="margin-top:1.5rem; display:inline-block; width:auto; padding:0.7rem 2rem; cursor:pointer;" onclick="showPage('about')">
+          Kenali Tim Kami →
+        </a>
+      </div>
+      <div class="about-visual">🎮</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="mg-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>🧩 MINDGAMES</h3>
+        <p>Platform mini game edukasi untuk semua kalangan. Bermain, belajar, dan berkembang bersama MindGames.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Game</h5>
+        <ul>
+          <li><a onclick="showPage('sudoku')">Sudoku</a></li>
+          <li><a onclick="showPage('tictactoe')">Tic Tac Toe</a></li>
+          <li><a onclick="showPage('connect4')">Connect 4</a></li>
+          <li><a onclick="showPage('sliding')">Sliding Puzzle</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Tim Kelompok 7</h5>
+        <ul>
+          <li>Farhan - Ketua</li>
+          <li>Putra - anggota</li>
+          <li>Airlangga - anggota</li>
+          <li>Irsyad - anggota</li>
+          <li>Prawindo - anggota</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 MindGames · Kelompok 7 · Departemen Statistika Bisnis · ITS Surabaya</p>
+    </div>
+  </footer>
+
+</div><!-- end #page-home -->
+
+
+<!-- ================================================================
+     PAGE: SUDOKU
+================================================================ -->
+<div id="page-sudoku" class="page">
+
+  <section class="game-page-hero sudoku">
+    <span class="game-hero-emoji">🔢</span>
+    <div class="game-hero-tag">✦ Puzzle Angka ✦</div>
+    <h1 class="game-hero-title">SUDOKU</h1>
+    <p class="game-hero-subtitle">Logika  Konsentrasi  Ketelitian</p>
+  </section>
+
+  <div class="info-section">
+    <div class="info-container">
+
+      <div class="info-card" style="margin-bottom:1.5rem;">
+        <h3>📋 Apa itu Sudoku?</h3>
+        <p>Sudoku adalah permainan teka-teki angka berbasis logika yang dimainkan pada sebuah grid berukuran 9×9. Grid tersebut dibagi menjadi sembilan kotak kecil berukuran 3×3. Sebagian sel sudah terisi angka sebagai petunjuk, dan tugasmu adalah mengisi sel yang kosong.</p>
+        <p>Nama "Sudoku" berasal dari bahasa Jepang yang merupakan singkatan dari <em>"Sūji wa dokushin ni kagiru"</em>, yang berarti "angka harus tunggal." Meski terlihat matematika, Sudoku sebenarnya murni tentang logika—tidak memerlukan operasi aritmatika apapun.</p>
+      </div>
+
+      <div class="info-card" style="margin-bottom:1.5rem;">
+        <h3>📜 Sejarah Sudoku</h3>
+        <p>Cikal bakal Sudoku pertama kali muncul di Amerika Serikat pada tahun 1979, dipublikasikan oleh Howard Garns di majalah <em>Dell Pencil Puzzles</em> dengan nama "Number Place." Garns, seorang arsitek dari Indiana, merancang puzzle ini sebagai tantangan logika murni.</p>
+        <p>Popularitasnya meledak di Jepang pada tahun 1986 ketika perusahaan penerbitan Nikoli mempublikasikannya dengan nama "Sudoku" dan menambahkan aturan bahwa jumlah petunjuk tidak boleh lebih dari 32. Pada tahun 2004, Sudoku menjadi fenomena global setelah diterbitkan di koran-koran Inggris dan menyebar ke seluruh dunia.</p>
+        <p>Kini Sudoku adalah salah satu puzzle paling populer di dunia, hadir dalam bentuk koran, buku, aplikasi, dan kompetisi internasional.</p>
+      </div>
+
+      <div class="info-card">
+        <h3>🕹️ Cara Bermain</h3>
+        <ul class="steps-list">
+          <li>Perhatikan grid 9×9 yang sudah memiliki beberapa angka sebagai petunjuk awal.</li>
+          <li>Setiap baris (horizontal) harus berisi angka 1 sampai 9 tanpa ada yang berulang.</li>
+          <li>Setiap kolom (vertikal) juga harus berisi angka 1 sampai 9 tanpa pengulangan.</li>
+          <li>Setiap kotak kecil 3×3 harus berisi angka 1 sampai 9 tanpa pengulangan.</li>
+          <li>Gunakan proses eliminasi — jika satu angka sudah ada di baris, kolom, atau kotak yang sama, angka itu tidak bisa dipakai di sel tersebut.</li>
+          <li>Mulailah dari sel dengan pilihan angka paling sedikit untuk mempermudah penyelesaian.</li>
+          <li>Puzzle selesai ketika semua sel terisi dengan benar tanpa pelanggaran aturan!</li>
+        </ul>
+      </div>
+
     </div>
   </div>
-</section>
 
-
-<section class="team-section">
-  <div class="team-header">
-    <span class="section-badge">✦ Tim Pengembang ✦</span>
-    <h2>Kenali Kami 🛠️</h2>
-    <span class="underline-bar" style="margin: 0.6rem auto 0;"></span>
-    <p>Kelompok 7 · Departemen Teknik Elektro Otomasi · ITS Surabaya</p>
+  <div class="play-cta">
+    <h2>Siap Menguji Logikamu? 🧠</h2>
+    <p>Coba pecahkan puzzle Sudoku dari level mudah hingga expert!</p>
+    <button class="btn-play" onclick="alert('Game Sudoku akan segera hadir! ')"> Ayo Main!</button>
   </div>
 
-  <div class="team-grid">
+  <footer class="mg-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>🧩 MINDGAMES</h3>
+        <p>Platform mini game edukasi untuk semua kalangan. Bermain, belajar, dan berkembang bersama MindGames.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Game Lainnya</h5>
+        <ul>
+          <li><a onclick="showPage('tictactoe')">Tic Tac Toe</a></li>
+          <li><a onclick="showPage('connect4')">Connect 4</a></li>
+          <li><a onclick="showPage('sliding')">Sliding Puzzle</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Tim Kelompok 7</h5>
+        <ul>
+          <li>Farhan — Ketua</li><li>Anggota 2</li><li>Anggota 3</li><li>Anggota 4</li><li>Anggota 5</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2025 MindGames · Kelompok 7 · Departemen Statistika Bisnis · ITS Surabaya</p></div>
+  </footer>
+
+</div><!-- end #page-sudoku -->
 
 
-    <div class="team-card lead">
-      <div class="team-avatar av1">👨‍💻</div>
-      <div class="team-info">
-        <div class="member-name">Farhan</div>
-        <div class="member-nrp">NRP 2043241095</div>
-        <span class="member-role lead-role">⭐ Ketua Tim</span>
-        <p class="member-desc">Memimpin pengembangan dan arsitektur keseluruhan website MindGames.</p>
+<!-- ================================================================
+     PAGE: TIC TAC TOE
+================================================================ -->
+<div id="page-tictactoe" class="page">
+
+  <section class="game-page-hero tictactoe">
+    <span class="game-hero-emoji">⭕</span>
+    <div class="game-hero-tag"> Strategi 2 Pemain </div>
+    <h1 class="game-hero-title">TIC TAC TOE</h1>
+    <p class="game-hero-subtitle">Klasik  Seru  Kompetitif</p>
+  </section>
+
+  <div class="info-section">
+    <div class="info-container">
+
+      <div class="info-card" style="margin-bottom:1.5rem;">
+        <h3>📋 Apa itu Tic Tac Toe?</h3>
+        <p>Tic Tac Toe (juga dikenal sebagai Noughts and Crosses atau X's and O's) adalah salah satu permainan strategi paling klasik di dunia. Dimainkan oleh dua pemain pada sebuah grid 3×3, setiap pemain bergantian menandai kotak dengan simbol mereka—biasanya X dan O.</p>
+        <p>Meski terlihat sederhana, Tic Tac Toe menyimpan kedalaman strategis yang menarik. Pemain yang bergerak optimal tidak akan pernah kalah—sehingga permainan ini sering digunakan sebagai pengantar konsep teori permainan dan kecerdasan buatan.</p>
+      </div>
+
+      <div class="info-card" style="margin-bottom:1.5rem;">
+        <h3>📜 Sejarah Tic Tac Toe</h3>
+        <p>Akar permainan ini dapat ditelusuri hingga ke Mesir Kuno sekitar tahun 1300 SM, di mana sebuah papan dengan pola tiga-dalam-satu-baris ditemukan. Bangsa Romawi memiliki versi serupa yang disebut "Terni Lapilli" yang dimainkan di forum-forum kota.</p>
+        <p>Nama "Tick-Tack-Toe" pertama kali muncul dalam bahasa Inggris pada abad ke-19, merujuk pada sebuah permainan pencil yang dimainkan dengan mata tertutup. Versi modern dengan aturan X dan O yang kita kenal hari ini mulai populer di Inggris pada awal abad ke-20.</p>
+        <p>Pada tahun 1952, OXO menjadi salah satu video game pertama dalam sejarah—sebuah implementasi Tic Tac Toe yang dibuat oleh Alexander Douglas sebagai bagian dari tesisnya di Universitas Cambridge.</p>
+      </div>
+
+      <div class="info-card">
+        <h3>🕹️ Cara Bermain</h3>
+        <ul class="steps-list">
+          <li>Permainan dimainkan oleh dua orang. Satu pemain menggunakan simbol <strong>X</strong>, dan yang lainnya menggunakan simbol <strong>O</strong>.</li>
+          <li>Papan permainan adalah grid berukuran 3 baris × 3 kolom dengan total 9 kotak kosong.</li>
+          <li>Pemain pertama (biasanya X) memulai dengan memilih satu kotak kosong untuk diisi simbolnya.</li>
+          <li>Giliran bergantian — setelah X bermain, giliran O, begitu seterusnya.</li>
+          <li>Pemain yang pertama berhasil menyusun 3 simbol miliknya secara berurutan menang — bisa secara horizontal, vertikal, atau diagonal.</li>
+          <li>Jika semua 9 kotak sudah terisi tanpa ada yang menang, permainan berakhir seri (draw).</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="play-cta">
+    <h2>Tantang Temanmu! ⭕✕</h2>
+    <p>Buktikan siapa yang jago strategi di antara kalian!</p>
+    <button class="btn-play" onclick="alert('Game Tic Tac Toe akan segera hadir! 🎉')">🚀 Ayo Main!</button>
+  </div>
+
+  <footer class="mg-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>🧩 MINDGAMES</h3>
+        <p>Platform mini game edukasi untuk semua kalangan. Bermain, belajar, dan berkembang bersama MindGames.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Game Lainnya</h5>
+        <ul>
+          <li><a onclick="showPage('sudoku')">Sudoku</a></li>
+          <li><a onclick="showPage('connect4')">Connect 4</a></li>
+          <li><a onclick="showPage('sliding')">Sliding Puzzle</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Tim Kelompok 7</h5>
+        <ul>
+          <li>Farhan — Ketua</li><li>Putra</li><li>Airlangga</li><li>Irsyad</li><li>Prawindo</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2025 MindGames · Kelompok 7 · Departemen Statistika Bisnis · ITS Surabaya</p></div>
+  </footer>
+
+</div><!-- end #page-tictactoe -->
+
+
+<!-- ================================================================
+     PAGE: CONNECT 4
+================================================================ -->
+<div id="page-connect4" class="page">
+
+  <section class="game-page-hero connect4">
+    <span class="game-hero-emoji">🔵</span>
+    <div class="game-hero-tag"> Strategi 2 Pemain </div>
+    <h1 class="game-hero-title">CONNECT 4</h1>
+    <p class="game-hero-subtitle">Taktik  Antisipasi  Kemenangan</p>
+  </section>
+
+  <div class="info-section">
+    <div class="info-container">
+
+      <div class="info-card" style="margin-bottom:1.5rem;">
+        <h3>📋 Apa itu Connect 4?</h3>
+        <p>Connect 4 adalah permainan strategi dua pemain di mana para pemain secara bergantian menjatuhkan keping berwarna ke dalam papan grid vertikal berukuran 7 kolom × 6 baris. Tujuannya adalah menjadi yang pertama menghubungkan empat keping miliknya secara berurutan.</p>
+        <p>Empat keping tersebut bisa tersusun secara horizontal, vertikal, atau diagonal. Karena kepingan jatuh ke posisi terendah yang kosong di setiap kolom, setiap keputusan memiliki konsekuensi bagi posisi keping selanjutnya—menjadikan setiap langkah sangat bermakna strategis.</p>
+      </div>
+
+      <div class="info-card" style="margin-bottom:1.5rem;">
+        <h3>📜 Sejarah Connect 4</h3>
+        <p>Connect 4 diciptakan oleh Howard Wexler dan dipatenkan bersama Ned Strongin pada tahun 1974. Permainan ini pertama kali dipasarkan oleh Milton Bradley (sekarang bagian dari Hasbro) pada bulan Februari 1974 dan langsung meraih kesuksesan besar—terjual lebih dari 2 juta unit dalam setahun pertama.</p>
+        <p>Dari perspektif matematika, Connect 4 adalah permainan yang "terpecahkan" (solved game). Pada tahun 1988, James Allen dan Victor Allis secara independen membuktikan bahwa pemain pertama yang bermain secara optimal selalu akan menang — asalkan memulai dari kolom tengah.</p>
+        <p>Connect 4 menjadi salah satu permainan board game terlaris sepanjang masa dan hingga kini tetap populer dalam berbagai format digital maupun fisik.</p>
+      </div>
+
+      <div class="info-card">
+        <h3>🕹️ Cara Bermain</h3>
+        <ul class="steps-list">
+          <li>Dua pemain masing-masing memilih warna keping berbeda (misalnya merah dan kuning).</li>
+          <li>Papan permainan berdiri vertikal dengan 7 kolom dan 6 baris. Semua sel awalnya kosong.</li>
+          <li>Pemain secara bergantian memilih salah satu kolom untuk menjatuhkan kepingnya.</li>
+          <li>Keping akan jatuh ke posisi paling bawah yang masih kosong di kolom yang dipilih—seperti gravitasi!</li>
+          <li>Pemain yang pertama berhasil menyusun 4 keping warnanya secara berurutan (horizontal, vertikal, atau diagonal) langsung menang.</li>
+          <li>Jika papan penuh dan tidak ada yang berhasil membuat empat sejajar, permainan berakhir seri.</li>
+          <li>Strategi kunci: selain menyusun kepingmu sendiri, blok juga ancaman lawan agar tidak mencapai empat keping lebih dulu!</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="play-cta">
+    <h2>Siapa yang Duluan Sampai 4? 🔵</h2>
+    <p>Adu strategi dan antisipasi dengan temanmu dalam Connect 4!</p>
+    <button class="btn-play" onclick="alert('Game Connect 4 akan segera hadir! ')"> Ayo Main!</button>
+  </div>
+
+  <footer class="mg-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>🧩 MINDGAMES</h3>
+        <p>Platform mini game edukasi untuk semua kalangan. Bermain, belajar, dan berkembang bersama MindGames.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Game Lainnya</h5>
+        <ul>
+          <li><a onclick="showPage('sudoku')">Sudoku</a></li>
+          <li><a onclick="showPage('tictactoe')">Tic Tac Toe</a></li>
+          <li><a onclick="showPage('sliding')">Sliding Puzzle</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Tim Kelompok 7</h5>
+        <ul>
+          <li>Farhan — Ketua</li><li>Putra</li><li>Airlangga</li><li>Irsyad</li><li>Prawindo</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2025 MindGames · Kelompok 7 · Departemen Statistika Bisnis · ITS Surabaya</p></div>
+  </footer>
+
+</div><!-- end #page-connect4 -->
+
+
+<!-- ================================================================
+     PAGE: SLIDING PUZZLE
+================================================================ -->
+<div id="page-sliding" class="page">
+
+  <section class="game-page-hero sliding">
+    <span class="game-hero-emoji">🔲</span>
+    <div class="game-hero-tag"> Puzzle Geser </div>
+    <h1 class="game-hero-title">SLIDING PUZZLE</h1>
+    <p class="game-hero-subtitle">Sabar  Terencana  Presisi</p>
+  </section>
+
+  <div class="info-section">
+    <div class="info-container">
+
+      <div class="info-card" style="margin-bottom:1.5rem;">
+        <h3>📋 Apa itu Sliding Puzzle?</h3>
+        <p>Sliding Puzzle (atau puzzle geser) adalah permainan kombinatorial di mana potongan-potongan bernomor ditempatkan secara acak dalam grid berukuran 4×4, dengan satu kotak kosong. Pemain harus menggeser potongan-potongan tersebut satu per satu ke posisi kosong hingga tersusun urut dari angka 1 hingga 15.</p>
+        <p>Versi paling populer adalah varian 15-puzzle (4×4 grid) yang membutuhkan perencanaan gerakan yang matang. Setiap keputusan geser berdampak pada posisi potongan lainnya, sehingga diperlukan pemikiran beberapa langkah ke depan untuk menyelesaikannya secara efisien.</p>
+      </div>
+
+      <div class="info-card" style="margin-bottom:1.5rem;">
+        <h3>📜 Sejarah Sliding Puzzle</h3>
+        <p>Sliding Puzzle ditemukan oleh Noyes Palmer Chapman, seorang kepala kantor pos dari Canastota, New York, sekitar tahun 1874. Namun popularitasnya meledak pada tahun 1880 ketika Sam Loyd, seorang ahli puzzle dan master catur terkenal Amerika, mulai mempromosikan puzzle ini secara luas.</p>
+        <p>Sam Loyd bahkan menawarkan hadiah senilai $1.000 kepada siapapun yang bisa memecahkan versi "impossible" 15-puzzle—di mana posisi tile 14 dan 15 ditukar. Bertahun-tahun kemudian, matematikawan membuktikan bahwa varian tersebut memang mustahil diselesaikan karena berkaitan dengan paritas permutasi.</p>
+        <p>Hingga kini, sliding puzzle tetap menjadi salah satu teka-teki paling ikonik di dunia dan menjadi subjek penelitian dalam kecerdasan buatan, khususnya untuk algoritma pencarian seperti A* (A-star).</p>
+      </div>
+
+      <div class="info-card">
+        <h3>🕹️ Cara Bermain</h3>
+        <ul class="steps-list">
+          <li>Kamu akan dihadapkan dengan grid 4×4 berisi 15 potongan bernomor (1–15) yang tersusun secara acak, dan satu kotak kosong.</li>
+          <li>Geser salah satu potongan yang bersebelahan langsung dengan kotak kosong ke posisi kosong tersebut. Kamu hanya bisa menggeser satu potongan per giliran.</li>
+          <li>Tidak ada lompatan — potongan hanya bisa bergerak ke atas, bawah, kiri, atau kanan ke kotak kosong yang berdekatan.</li>
+          <li>Rencanakan gerakanmu secara strategis. Jangan fokus pada satu angka saja—pikirkan dampaknya terhadap posisi angka-angka lain.</li>
+          <li>Selesaikan puzzle dengan menyusun semua angka dari 1 hingga 15 secara berurutan dari kiri ke kanan, atas ke bawah, dengan kotak kosong di pojok kanan bawah.</li>
+          <li>Coba selesaikan dalam gerakan sesedikit mungkin untuk meraih skor tertinggi!</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="play-cta">
+    <h2>Urutkan Semuanya! 🔲</h2>
+    <p>Seberapa cepat kamu bisa menyusun semua 15 angka ke tempatnya?</p>
+    <button class="btn-play" onclick="alert('Game Sliding Puzzle akan segera hadir! 🎉')">🚀 Ayo Main!</button>
+  </div>
+
+  <footer class="mg-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>🧩 MINDGAMES</h3>
+        <p>Platform mini game edukasi untuk semua kalangan. Bermain, belajar, dan berkembang bersama MindGames.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Game Lainnya</h5>
+        <ul>
+          <li><a onclick="showPage('sudoku')">Sudoku</a></li>
+          <li><a onclick="showPage('tictactoe')">Tic Tac Toe</a></li>
+          <li><a onclick="showPage('connect4')">Connect 4</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Tim Kelompok 7</h5>
+        <ul>
+          <li>Farhan — Ketua</li><li>Putra</li><li>Airlangga</li><li>Irsyad</li><li>Prawindo</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2025 MindGames · Kelompok 7 · Departemen Statistika Bisnis · ITS Surabaya</p></div>
+  </footer>
+
+</div><!-- end #page-sliding -->
+
+
+<!-- ================================================================
+     PAGE: ABOUT US
+================================================================ -->
+<div id="page-about" class="page">
+
+  <section class="about-page-hero">
+    <div style="font-size:4rem; margin-bottom:1rem; animation: float 3s ease-in-out infinite;">👥</div>
+    <h1>About Us</h1>
+    <p>Kenali tim di balik MindGames</p>
+  </section>
+
+  <div class="about-page-body">
+
+    <div class="about-mission">
+      <h2>Misi Kami 🎯</h2>
+      <p>MindGames lahir dari sebuah keyakinan sederhana: belajar dan bermain bisa berjalan beriringan. Kami adalah tim mahasiswa Departemen Statistika Bisnis ITS Surabaya yang membangun platform ini sebagai proyek web statis untuk mata kuliah Pemrograman Web.</p>
+      <p>Melalui kumpulan mini game klasik yang dihadirkan dalam tampilan modern dan menarik, kami berharap MindGames bisa menjadi tempat yang menyenangkan untuk melatih kemampuan berpikir logis, strategis, dan kreatif bagi semua kalangan.</p>
+    </div>
+
+    <div style="max-width: 1100px; margin: 0 auto; padding: 0 1.5rem;">
+      <h2 class="team-section-title">Tim Pengembang 🛠️</h2>
+      <p class="team-section-sub">Kelompok 7 · Departemen Statistika Bisnis · ITS Surabaya</p>
+
+      <div class="team-grid">
+
+        <div class="team-card">
+          <div class="team-avatar av1">👨‍💻</div>
+          <div class="team-info">
+            <h4>Farhan Gani Kurniawan</h4>
+            <p class="nrp">NRP 2043241095</p>
+            <span class="role">Ketua</span>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-avatar av2">👩‍💻</div>
+          <div class="team-info">
+            <h4>Putra Radya Agriya Wiharjo</h4>
+            <p class="nrp">NRP 2043251119</p>
+            <span class="role">Bantu Ketua</span>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-avatar av3">👨‍🎨</div>
+          <div class="team-info">
+            <h4>Airlangga Arya Wijaya </h4>
+            <p class="nrp">NRP 2043251055</p>
+            <span class="role">Bantu Ketua</span>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-avatar av4">👩‍🎨</div>
+          <div class="team-info">
+            <h4>Muhammad Rizky Prawindo</h4>
+            <p class="nrp">NRP 2043251079</p>
+            <span class="role">Bantu Ketua</span>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-avatar av5">👨‍🔬</div>
+          <div class="team-info">
+            <h4>Andi Muhammad Irsyad </h4>
+            <p class="nrp">NRP 2043251039</p>
+            <span class="role">Bantu Ketua</span>
+          </div>
+        </div>
+
       </div>
     </div>
 
- 
-    <div class="team-card">
-      <div class="team-avatar av2">👩‍💻</div>
-      <div class="team-info">
-        <div class="member-name">Airlangga arya wijaya</div>
-        <div class="member-nrp">NRP 2043251055</div>
-        <span class="member-role">anggota</span>
-        <p class="member-desc">bantu ketua</p>
-      </div>
-    </div>
-
-
-    <div class="team-card">
-      <div class="team-avatar av3">👨‍🎨</div>
-      <div class="team-info">
-        <div class="member-name">Andi Muhammad Irsyad</div>
-        <div class="member-nrp">NRP 2043251039</div>
-        <span class="member-role">anggota</span>
-        <p class="member-desc">bantu ketua</p>
-      </div>
-    </div>
-
-
-    <div class="team-card">
-      <div class="team-avatar av4">👩‍🎨</div>
-      <div class="team-info">
-        <div class="member-name">Putra Radya Agriya Wiharjo</div>
-        <div class="member-nrp">NRP 2043251119</div>
-        <span class="member-role">anggota</span>
-        <p class="member-desc">bantu ketua</p>
-      </div>
-    </div>
-
-
-    <div class="team-card">
-      <div class="team-avatar av5">👨‍🔬</div>
-      <div class="team-info">
-        <div class="member-name">Muhammad Rizky Prawindo</div>
-        <div class="member-nrp">NRP 2043251079</div>
-        <span class="member-role">anggota</span>
-        <p class="member-desc">anggota</p>
+    <div class="tech-stack">
+      <h2>Dibangun dengan 🔧</h2>
+      <div class="tech-items">
+        <div class="tech-chip">🌐 HTML5</div>
+        <div class="tech-chip">🎨 CSS3</div>
+        <div class="tech-chip">⚡ Bootstrap 5</div>
+        <div class="tech-chip">📝 Google Fonts</div>
+        <div class="tech-chip">✨ CSS Animations</div>
+        <div class="tech-chip">📱 Responsive Design</div>
       </div>
     </div>
 
   </div>
-</section>
 
-
-<section class="tech-section">
-
-  <span class="section-badge">✦ Teknologi ✦</span>
-  <h2>Dibangun dengan 🔧</h2>
-  <p>Seluruh website dibangun hanya dengan teknologi web dasar — tanpa framework JavaScript!</p>
-
-  <div class="tech-items">
-    <div class="tech-chip">🌐 HTML5</div>
-    <div class="tech-chip">🎨 CSS3</div>
-    <div class="tech-chip">⚡ Bootstrap 5</div>
-    <div class="tech-chip">✍️ Google Fonts</div>
-    <div class="tech-chip">💫 CSS Animations</div>
-    <div class="tech-chip">📱 Responsive Design</div>
-    <div class="tech-chip">🎯 CSS Variables</div>
-    <div class="tech-chip">📐 CSS Grid &amp; Flexbox</div>
-  </div>
-
-  <span class="section-badge"> Nilai Kami </span>
-  <h2 style="margin-top: 0.5rem; margin-bottom: 0.5rem;">Yang Kami Pegang  </h2>
-  <span class="underline-bar" style="margin: 0.5rem auto 3rem;"></span>
-
-  <div class="values-grid">
-    <div class="value-card">
-      <div class="value-icon">🧠</div>
-      <h4>Berpikir Kritis</h4>
-      <p>Setiap game kami dirancang untuk melatih kemampuan berpikir logis dan pengambilan keputusan yang cepat.</p>
+  <footer class="mg-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>🧩 MINDGAMES</h3>
+        <p>Platform mini game edukasi untuk semua kalangan. Bermain, belajar, dan berkembang bersama MindGames.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Game</h5>
+        <ul>
+          <li><a onclick="showPage('sudoku')">Sudoku</a></li>
+          <li><a onclick="showPage('tictactoe')">Tic Tac Toe</a></li>
+          <li><a onclick="showPage('connect4')">Connect 4</a></li>
+          <li><a onclick="showPage('sliding')">Sliding Puzzle</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Tim Kelompok 7</h5>
+        <ul>
+          <li>Farhan — Ketua</li><li>Putra</li><li>Airlangga</li><li>Irsyad</li><li>Prawindo</li>
+        </ul>
+      </div>
     </div>
-    <div class="value-card">
-      <div class="value-icon">🎮</div>
-      <h4>Fun First</h4>
-      <p>Kami percaya pengalaman belajar terbaik adalah yang menyenangkan dan membuat ketagihan ingin terus mencoba.</p>
-    </div>
-    <div class="value-card">
-      <div class="value-icon">🤝</div>
-      <h4>Kolaborasi</h4>
-      <p>MindGames dibangun oleh tim yang solid dengan pembagian peran yang jelas dan saling mendukung.</p>
-    </div>
-    <div class="value-card">
-      <div class="value-icon">⚡</div>
-      <h4>Sederhana &amp; Cepat</h4>
-      <p>Website statis murni tanpa backend — ringan, cepat, dan bisa diakses dari mana saja tanpa instalasi.</p>
-    </div>
-  </div>
+    <div class="footer-bottom"><p>&copy; 2025 MindGames · Kelompok 7 · Departemen Statistika Bisnis · ITS Surabaya</p></div>
+  </footer>
 
-</section>
+</div><!-- end #page-about -->
 
 
-<footer class="mg-footer">
-  <div class="footer-inner">
-
-    <div class="footer-brand">
-      <h3>🧩 MINDGAMES</h3>
-      <p>Platform mini game edukasi untuk semua kalangan. Bermain, belajar, dan berkembang bersama MindGames.</p>
-    </div>
-
-    <div class="footer-col">
-      <h5>Game</h5>
-      <ul>
-        <li><a href="sudoku.html">Sudoku</a></li>
-        <li><a href="tictactoe.html">Tic Tac Toe</a></li>
-        <li><a href="connect4.html">Connect 4</a></li>
-        <li><a href="sliding.html">Sliding Puzzle</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h5>Tim Kelompok 7</h5>
-      <ul>
-        <li>Farhan — Ketua</li>
-        <li>Airlangga - anggota</li>
-        <li>Irsyad - anggota</li>
-        <li>Putra - anggota</li>
-        <li>Prawindo - anggota</li>
-      </ul>
-    </div>
-
-  </div>
-  <div class="footer-bottom">
-    &copy; 2025 MindGames · Kelompok 7 · Departemen Teknik Statistika Bisnis · ITS Surabaya
-  </div>
-</footer>
-
-<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // ---- SPA Navigation ----
+  const pages = ['home', 'sudoku', 'tictactoe', 'connect4', 'sliding', 'about'];
 
+  function showPage(id) {
+    // hide all pages
+    pages.forEach(p => {
+      document.getElementById('page-' + p).classList.remove('active');
+      const navEl = document.getElementById('nav-' + p);
+      if (navEl) navEl.classList.remove('active');
+    });
+
+    // show target page
+    const target = document.getElementById('page-' + id);
+    if (target) {
+      target.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // set active nav link
+    const navEl = document.getElementById('nav-' + id);
+    if (navEl) navEl.classList.add('active');
+
+    // update page title
+    const titles = {
+      home: 'MindGames — Beranda',
+      sudoku: 'MindGames — Sudoku',
+      tictactoe: 'MindGames — Tic Tac Toe',
+      connect4: 'MindGames — Connect 4',
+      sliding: 'MindGames — Sliding Puzzle',
+      about: 'MindGames — About Us'
+    };
+    document.title = titles[id] || 'MindGames';
+
+    // close mobile nav
+    document.getElementById('navCollapse').classList.remove('open');
+  }
+
+  function toggleNav() {
+    document.getElementById('navCollapse').classList.toggle('open');
+  }
+
+  // set home as default active nav
+  document.getElementById('nav-home').classList.add('active');
+</script>
 </body>
 </html>
