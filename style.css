@@ -25,8 +25,7 @@ body {
 }
 
 /* ======== PAGE SYSTEM ======== */
-.page { display: none; }
-.page.active { display: block; }
+.page { display: block; }
 
 /* ======== NAVBAR ======== */
 .mg-navbar {
