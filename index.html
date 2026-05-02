@@ -6,21 +6,73 @@
   <title>MindGames</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+
+    .page { display: none; }
+
+
+    #page-home { display: block; }
+
+
+    #page-home:target,
+    #page-sudoku:target,
+    #page-tictactoe:target,
+    #page-connect4:target,
+    #page-sliding:target,
+    #page-about:target { display: block; }
+
+    
+    body:has(#page-sudoku:target)    #page-home,
+    body:has(#page-tictactoe:target) #page-home,
+    body:has(#page-connect4:target)  #page-home,
+    body:has(#page-sliding:target)   #page-home,
+    body:has(#page-about:target)     #page-home { display: none; }
+
+    
+    #page-home:target      ~ nav .nav-home,
+    #page-sudoku:target    ~ nav .nav-sudoku,
+    #page-tictactoe:target ~ nav .nav-tictactoe,
+    #page-connect4:target  ~ nav .nav-connect4,
+    #page-sliding:target   ~ nav .nav-sliding,
+    #page-about:target     ~ nav .nav-about { color: var(--yellow); background: rgba(255,255,255,0.08); }
+
+    
+    nav .nav-home { color: var(--yellow); background: rgba(255,255,255,0.08); }
+    body:has(#page-sudoku:target)    nav .nav-home,
+    body:has(#page-tictactoe:target) nav .nav-home,
+    body:has(#page-connect4:target)  nav .nav-home,
+    body:has(#page-sliding:target)   nav .nav-home,
+    body:has(#page-about:target)     nav .nav-home { color: rgba(255,255,255,0.8); background: none; }
+
+    body:has(#page-sudoku:target)    nav .nav-sudoku    { color: var(--yellow); background: rgba(255,255,255,0.08); }
+    body:has(#page-tictactoe:target) nav .nav-tictactoe { color: var(--yellow); background: rgba(255,255,255,0.08); }
+    body:has(#page-connect4:target)  nav .nav-connect4  { color: var(--yellow); background: rgba(255,255,255,0.08); }
+    body:has(#page-sliding:target)   nav .nav-sliding   { color: var(--yellow); background: rgba(255,255,255,0.08); }
+    body:has(#page-about:target)     nav .nav-about     { color: var(--yellow); background: rgba(255,255,255,0.08); }
+
+    
+    #nav-toggle { display: none; }
+    @media (max-width: 900px) {
+      #nav-toggle:checked ~ .mg-nav-collapse { display: flex; }
+      .mg-hamburger { display: flex; cursor: pointer; }
+    }
+    .mg-hamburger { display: none; }
+  </style>
 </head>
 <body>
 
-
 <nav class="mg-navbar">
-  <a class="navbar-brand" onclick="showPage('home')">🧩 MINDGAMES</a>
-  <button class="mg-hamburger" onclick="toggleNav()"><span></span><span></span><span></span></button>
+  <a class="navbar-brand" href="#page-home">🧩 MINDGAMES</a>
+  <label class="mg-hamburger" for="nav-toggle"><span></span><span></span><span></span></label>
+  <input type="checkbox" id="nav-toggle">
   <div class="mg-nav-collapse" id="navCollapse">
     <ul class="mg-nav-links">
-      <li><a id="nav-home"     onclick="showPage('home')">Beranda</a></li>
-      <li><a id="nav-sudoku"   onclick="showPage('sudoku')">Sudoku</a></li>
-      <li><a id="nav-tictactoe" onclick="showPage('tictactoe')">Tic Tac Toe</a></li>
-      <li><a id="nav-connect4" onclick="showPage('connect4')">Connect 4</a></li>
-      <li><a id="nav-sliding"  onclick="showPage('sliding')">Sliding Puzzle</a></li>
-      <li><a id="nav-about"    onclick="showPage('about')">About Us</a></li>
+      <li><a class="nav-home"      href="#page-home">Beranda</a></li>
+      <li><a class="nav-sudoku"    href="#page-sudoku">Sudoku</a></li>
+      <li><a class="nav-tictactoe" href="#page-tictactoe">Tic Tac Toe</a></li>
+      <li><a class="nav-connect4"  href="#page-connect4">Connect 4</a></li>
+      <li><a class="nav-sliding"   href="#page-sliding">Sliding Puzzle</a></li>
+      <li><a class="nav-about"     href="#page-about">About Us</a></li>
     </ul>
     <div class="mg-search-wrap">
       <span class="search-icon">🔍</span>
@@ -30,13 +82,14 @@
 </nav>
 
 
-<div id="page-home" class="page active">
+     PAGE HOME
 
-  
+<div id="page-home" class="page">
+
   <section class="hero">
     <div class="hero-brain">🧠</div>
     <div class="hero-content">
-      <div class="hero-eyebrow">✦ Platform Mini Game Terbaik ✦</div>
+      <div class="hero-eyebrow"> Platform Mini Game Terbaik </div>
       <h1 class="hero-title">MINDGAMES</h1>
       <p class="hero-sub">Asah otak Tantang dirimu  Raih skor tertinggi</p>
     </div>
@@ -46,7 +99,6 @@
     </div>
   </section>
 
-  
   <section class="games-section" id="games">
     <div class="section-header">
       <h2>Pilih Gamenya 🎮</h2>
@@ -56,10 +108,10 @@
 
     <div class="games-grid">
 
-      <div class="game-card" onclick="showPage('sudoku')">
+      <a class="game-card" href="#page-sudoku">
         <div class="game-card-img sudoku">🔢</div>
         <div class="game-card-body">
-          <span class="game-card-tag">Angka & Logika</span>
+          <span class="game-card-tag">Angka &amp; Logika</span>
           <h3 class="game-card-title">Sudoku</h3>
           <p class="game-card-desc">Isi grid 9×9 dengan angka 1–9 tanpa ada pengulangan di baris, kolom, atau kotak 3×3.</p>
           <div class="game-card-footer">
@@ -73,9 +125,9 @@
             <span class="play-hint">Selengkapnya →</span>
           </div>
         </div>
-      </div>
+      </a>
 
-      <div class="game-card" onclick="showPage('tictactoe')">
+      <a class="game-card" href="#page-tictactoe">
         <div class="game-card-img tictactoe">⭕</div>
         <div class="game-card-body">
           <span class="game-card-tag">Strategi 2 Pemain</span>
@@ -92,9 +144,9 @@
             <span class="play-hint">Selengkapnya →</span>
           </div>
         </div>
-      </div>
+      </a>
 
-      <div class="game-card" onclick="showPage('connect4')">
+      <a class="game-card" href="#page-connect4">
         <div class="game-card-img connect4">🔵</div>
         <div class="game-card-body">
           <span class="game-card-tag">Strategi 2 Pemain</span>
@@ -111,12 +163,12 @@
             <span class="play-hint">Selengkapnya →</span>
           </div>
         </div>
-      </div>
+      </a>
 
-      <div class="game-card" onclick="showPage('sliding')">
+      <a class="game-card" href="#page-sliding">
         <div class="game-card-img sliding">🔲</div>
         <div class="game-card-body">
-          <span class="game-card-tag">Puzzle & Logika</span>
+          <span class="game-card-tag">Puzzle &amp; Logika</span>
           <h3 class="game-card-title">Sliding Puzzle</h3>
           <p class="game-card-desc">Susun kembali potongan angka yang teracak menjadi urutan 1–15 pada grid 4×4.</p>
           <div class="game-card-footer">
@@ -130,19 +182,19 @@
             <span class="play-hint">Selengkapnya →</span>
           </div>
         </div>
-      </div>
+      </a>
 
     </div>
   </section>
 
-  <!-- ABOUT SNIPPET -->
+    
   <section class="about-section">
     <div class="about-inner">
       <div class="about-text">
         <h2>Tentang MindGames 🧩</h2>
         <p>MindGames adalah platform game edukasi berbasis web yang menyajikan koleksi mini game yang menyenangkan sekaligus melatih kemampuan berpikir logis dan strategis.</p>
         <p>Dibuat oleh mahasiswa ITS Surabaya sebagai proyek web statis, MindGames membuktikan bahwa belajar bisa menyenangkan!</p>
-        <a class="btn-primary-mg" style="margin-top:1.5rem; display:inline-block; width:auto; padding:0.7rem 2rem; cursor:pointer;" onclick="showPage('about')">
+        <a class="btn-primary-mg" href="#page-about" style="margin-top:1.5rem; display:inline-block; width:auto; padding:0.7rem 2rem;">
           Kenali Tim Kami →
         </a>
       </div>
@@ -160,20 +212,20 @@
       <div class="footer-col">
         <h5>Game</h5>
         <ul>
-          <li><a onclick="showPage('sudoku')">Sudoku</a></li>
-          <li><a onclick="showPage('tictactoe')">Tic Tac Toe</a></li>
-          <li><a onclick="showPage('connect4')">Connect 4</a></li>
-          <li><a onclick="showPage('sliding')">Sliding Puzzle</a></li>
+          <li><a href="#page-sudoku">Sudoku</a></li>
+          <li><a href="#page-tictactoe">Tic Tac Toe</a></li>
+          <li><a href="#page-connect4">Connect 4</a></li>
+          <li><a href="#page-sliding">Sliding Puzzle</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h5>Tim Kelompok 7</h5>
         <ul>
           <li>Farhan - Ketua</li>
-          <li>Putra - anggota</li>
-          <li>Airlangga - anggota</li>
-          <li>Irsyad - anggota</li>
-          <li>Prawindo - anggota</li>
+          <li>Putra - Wakil Ketua</li>
+          <li>Airlangga - Staff</li>
+          <li>Irsyad - Staff</li>
+          <li>Prawindo - Staff</li>
         </ul>
       </div>
     </div>
@@ -185,14 +237,16 @@
 </div><!-- end #page-home -->
 
 
-<!-- ================================================================
+
+   <!-- ================================================================
      PAGE: SUDOKU
 ================================================================ -->
+
 <div id="page-sudoku" class="page">
 
   <section class="game-page-hero sudoku">
     <span class="game-hero-emoji">🔢</span>
-    <div class="game-hero-tag">✦ Puzzle Angka ✦</div>
+    <div class="game-hero-tag"> Puzzle Angka </div>
     <h1 class="game-hero-title">SUDOKU</h1>
     <p class="game-hero-subtitle">Logika  Konsentrasi  Ketelitian</p>
   </section>
@@ -232,7 +286,7 @@
   <div class="play-cta">
     <h2>Siap Menguji Logikamu? 🧠</h2>
     <p>Coba pecahkan puzzle Sudoku dari level mudah hingga expert!</p>
-    <button class="btn-play" onclick="window.open('https://sudoku.com/', '_blank')">Ayo Main!</button>
+    <a class="btn-play" href="https://sudoku.com/" target="_blank">Ayo Main!</a>
   </div>
 
   <footer class="mg-footer">
@@ -244,15 +298,19 @@
       <div class="footer-col">
         <h5>Game Lainnya</h5>
         <ul>
-          <li><a onclick="showPage('tictactoe')">Tic Tac Toe</a></li>
-          <li><a onclick="showPage('connect4')">Connect 4</a></li>
-          <li><a onclick="showPage('sliding')">Sliding Puzzle</a></li>
+          <li><a href="#page-tictactoe">Tic Tac Toe</a></li>
+          <li><a href="#page-connect4">Connect 4</a></li>
+          <li><a href="#page-sliding">Sliding Puzzle</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h5>Tim Kelompok 7</h5>
         <ul>
-          <li>Farhan — Ketua</li><li>Anggota 2</li><li>Anggota 3</li><li>Anggota 4</li><li>Anggota 5</li>
+          <li>Farhan - Ketua</li>
+          <li>Putra - Wakil Ketua</li>
+          <li>Airlangga - Staff</li>
+          <li>Irsyad - Staff</li>
+          <li>Prawindo - Staff</li>
         </ul>
       </div>
     </div>
@@ -308,7 +366,7 @@
   <div class="play-cta">
     <h2>Tantang Temanmu! ⭕✕</h2>
     <p>Buktikan siapa yang jago strategi di antara kalian!</p>
-  <button class="btn-play" onclick="window.open('https://playtictactoe.org/', '_blank')">Ayo Main!</button>
+    <a class="btn-play" href="https://playtictactoe.org/" target="_blank">Ayo Main!</a>
   </div>
 
   <footer class="mg-footer">
@@ -320,15 +378,19 @@
       <div class="footer-col">
         <h5>Game Lainnya</h5>
         <ul>
-          <li><a onclick="showPage('sudoku')">Sudoku</a></li>
-          <li><a onclick="showPage('connect4')">Connect 4</a></li>
-          <li><a onclick="showPage('sliding')">Sliding Puzzle</a></li>
+          <li><a href="#page-sudoku">Sudoku</a></li>
+          <li><a href="#page-connect4">Connect 4</a></li>
+          <li><a href="#page-sliding">Sliding Puzzle</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h5>Tim Kelompok 7</h5>
         <ul>
-          <li>Farhan — Ketua</li><li>Putra</li><li>Airlangga</li><li>Irsyad</li><li>Prawindo</li>
+          <li>Farhan - Ketua</li>
+          <li>Putra - Wakil Ketua</li>
+          <li>Airlangga - Staff</li>
+          <li>Irsyad - Staff</li>
+          <li>Prawindo - Staff</li>
         </ul>
       </div>
     </div>
@@ -385,7 +447,7 @@
   <div class="play-cta">
     <h2>Siapa yang Duluan Sampai 4? 🔵</h2>
     <p>Adu strategi dan antisipasi dengan temanmu dalam Connect 4!</p>
-   <button class="btn-play" onclick="window.open('https://papergames.io/id/connect4', '_blank')">Ayo Main!</button>
+    <a class="btn-play" href="https://papergames.io/id/connect4" target="_blank">Ayo Main!</a>
   </div>
 
   <footer class="mg-footer">
@@ -397,15 +459,19 @@
       <div class="footer-col">
         <h5>Game Lainnya</h5>
         <ul>
-          <li><a onclick="showPage('sudoku')">Sudoku</a></li>
-          <li><a onclick="showPage('tictactoe')">Tic Tac Toe</a></li>
-          <li><a onclick="showPage('sliding')">Sliding Puzzle</a></li>
+          <li><a href="#page-sudoku">Sudoku</a></li>
+          <li><a href="#page-tictactoe">Tic Tac Toe</a></li>
+          <li><a href="#page-sliding">Sliding Puzzle</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h5>Tim Kelompok 7</h5>
         <ul>
-          <li>Farhan — Ketua</li><li>Putra</li><li>Airlangga</li><li>Irsyad</li><li>Prawindo</li>
+          <li>Farhan - Ketua</li>
+          <li>Putra - Wakil Ketua</li>
+          <li>Airlangga - Staff</li>
+          <li>Irsyad - Staff</li>
+          <li>Prawindo - Staff</li>
         </ul>
       </div>
     </div>
@@ -461,7 +527,7 @@
   <div class="play-cta">
     <h2>Urutkan Semuanya! 🔲</h2>
     <p>Seberapa cepat kamu bisa menyusun semua 15 angka ke tempatnya?</p>
-   <button class="btn-play" onclick="window.open('https://collepic.net/id/game/SlidingPuzzle', '_blank')">Ayo Main!</button>
+    <a class="btn-play" href="https://collepic.net/id/game/SlidingPuzzle" target="_blank">Ayo Main!</a>
   </div>
 
   <footer class="mg-footer">
@@ -473,15 +539,19 @@
       <div class="footer-col">
         <h5>Game Lainnya</h5>
         <ul>
-          <li><a onclick="showPage('sudoku')">Sudoku</a></li>
-          <li><a onclick="showPage('tictactoe')">Tic Tac Toe</a></li>
-          <li><a onclick="showPage('connect4')">Connect 4</a></li>
+          <li><a href="#page-sudoku">Sudoku</a></li>
+          <li><a href="#page-tictactoe">Tic Tac Toe</a></li>
+          <li><a href="#page-connect4">Connect 4</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h5>Tim Kelompok 7</h5>
         <ul>
-          <li>Farhan — Ketua</li><li>Putra</li><li>Airlangga</li><li>Irsyad</li><li>Prawindo</li>
+          <li>Farhan - Ketua</li>
+          <li>Putra - Wakil Ketua</li>
+          <li>Airlangga - Staff</li>
+          <li>Irsyad - Staff</li>
+          <li>Prawindo - Staff</li>
         </ul>
       </div>
     </div>
@@ -587,16 +657,20 @@
       <div class="footer-col">
         <h5>Game</h5>
         <ul>
-          <li><a onclick="showPage('sudoku')">Sudoku</a></li>
-          <li><a onclick="showPage('tictactoe')">Tic Tac Toe</a></li>
-          <li><a onclick="showPage('connect4')">Connect 4</a></li>
-          <li><a onclick="showPage('sliding')">Sliding Puzzle</a></li>
+          <li><a href="#page-sudoku">Sudoku</a></li>
+          <li><a href="#page-tictactoe">Tic Tac Toe</a></li>
+          <li><a href="#page-connect4">Connect 4</a></li>
+          <li><a href="#page-sliding">Sliding Puzzle</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h5>Tim Kelompok 7</h5>
         <ul>
-          <li>Farhan — Ketua</li><li>Putra</li><li>Airlangga</li><li>Irsyad</li><li>Prawindo</li>
+          <li>Farhan - Ketua</li>
+          <li>Putra - Wakil Ketua</li>
+          <li>Airlangga - Staff</li>
+          <li>Irsyad - Staff</li>
+          <li>Prawindo - Staff</li>
         </ul>
       </div>
     </div>
@@ -605,52 +679,5 @@
 
 </div><!-- end #page-about -->
 
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-  // ---- SPA Navigation ----
-  const pages = ['home', 'sudoku', 'tictactoe', 'connect4', 'sliding', 'about'];
-
-  function showPage(id) {
-    // hide all pages
-    pages.forEach(p => {
-      document.getElementById('page-' + p).classList.remove('active');
-      const navEl = document.getElementById('nav-' + p);
-      if (navEl) navEl.classList.remove('active');
-    });
-
-    // show target page
-    const target = document.getElementById('page-' + id);
-    if (target) {
-      target.classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    // set active nav link
-    const navEl = document.getElementById('nav-' + id);
-    if (navEl) navEl.classList.add('active');
-
-    // update page title
-    const titles = {
-      home: 'MindGames — Beranda',
-      sudoku: 'MindGames — Sudoku',
-      tictactoe: 'MindGames — Tic Tac Toe',
-      connect4: 'MindGames — Connect 4',
-      sliding: 'MindGames — Sliding Puzzle',
-      about: 'MindGames — About Us'
-    };
-    document.title = titles[id] || 'MindGames';
-
-    // close mobile nav
-    document.getElementById('navCollapse').classList.remove('open');
-  }
-
-  function toggleNav() {
-    document.getElementById('navCollapse').classList.toggle('open');
-  }
-
-  // set home as default active nav
-  document.getElementById('nav-home').classList.add('active');
-</script>
 </body>
 </html>
